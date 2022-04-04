@@ -105,7 +105,9 @@ db.posts.find().forEach(function(doc) {
 })
 ```
 ### Find One Row
+```js
 db.posts.findOne({ category: 'News' })
+```
 ### Find Specific Fields
 ```js
 db.posts.find({ title: 'Post One' }, {
