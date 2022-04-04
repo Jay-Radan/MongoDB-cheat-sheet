@@ -28,6 +28,7 @@ db.posts.insert({
   date: Date()
 })
 ### Insert Multiple Rows
+```js
 db.posts.insertMany([
   {
     title: 'Post Two',
@@ -48,6 +49,7 @@ db.posts.insertMany([
     date: Date()
   }
 ])
+```
 ### Get All Rows
 db.posts.find()
 ### Get All Rows Formatted
