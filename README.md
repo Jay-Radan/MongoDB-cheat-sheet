@@ -16,6 +16,8 @@ db.createCollection('posts')
 ### Show Collections
 show collections
 ### Insert Row
+
+```js
 db.posts.insert({
   title: 'Post One',
   body: 'Body of post one',
@@ -27,6 +29,8 @@ db.posts.insert({
   },
   date: Date()
 })
+```
+
 ### Insert Multiple Rows
 ```js
 db.posts.insertMany([
@@ -69,17 +73,22 @@ db.posts.find().limit(2).pretty()
 ### Chaining
 db.posts.find().limit(2).sort({ title: 1 }).pretty()
 ### Foreach
+```js
 db.posts.find().forEach(function(doc) {
   print("Blog Post: " + doc.title)
 })
+```
 ### Find One Row
 db.posts.findOne({ category: 'News' })
 ### Find Specific Fields
+```js
 db.posts.find({ title: 'Post One' }, {
   title: 1,
   author: 1
 })
+```
 ### Update Row
+```js
 db.posts.update({ title: 'Post Two' },
 {
   title: 'Post Two',
@@ -89,7 +98,9 @@ db.posts.update({ title: 'Post Two' },
 {
   upsert: true
 })
+```
 ### Update Specific Field
+```js
 db.posts.update({ title: 'Post Two' },
 {
   $set: {
@@ -97,23 +108,29 @@ db.posts.update({ title: 'Post Two' },
     category: 'Technology'
   }
 })
+```
 ### Increment Field ($inc)
+```js
 db.posts.update({ title: 'Post Two' },
 {
   $inc: {
     likes: 5
   }
 })
+```
 ### Rename Field
+```js
 db.posts.update({ title: 'Post Two' },
 {
   $rename: {
     likes: 'views'
   }
 })
+```
 ### Delete Row
 db.posts.remove({ title: 'Post Four' })
 ### Sub-Documents
+```js
 db.posts.update({ title: 'Post One' },
 {
   $set: {
@@ -131,7 +148,9 @@ db.posts.update({ title: 'Post One' },
     ]
   }
 })
+```
 ### Find By Element in Array ($elemMatch)
+```js
 db.posts.find({
   comments: {
      $elemMatch: {
@@ -140,16 +159,21 @@ db.posts.find({
     }
   }
 )
+```
 ## Add Index
 db.posts.createIndex({ title: 'text' })
 ### Text Search
+```js
 db.posts.find({
   $text: {
     $search: "\"Post O\""
     }
 })
+```
 ### Greater & Less Than
+```js
 db.posts.find({ views: { $gt: 2 } })
 db.posts.find({ views: { $gte: 7 } })
 db.posts.find({ views: { $lt: 7 } })
 db.posts.find({ views: { $lte: 7 } })
+```
