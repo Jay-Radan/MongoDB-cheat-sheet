@@ -2,19 +2,29 @@
 
 
 ### Show All Databases
-
+```js
 show dbs
-
+```
 ### Show Current Database
+```js
 db
+```
  ### Create Or Switch Database
+ ```js
 use acme
+```
 # Drop
+```js
 db.dropDatabase()
+```
 ### Create Collection
+```js
 db.createCollection('posts')
+```
 ### Show Collections
+```js
 show collections
+```
 ### Insert Row
 
 ```js
@@ -55,23 +65,39 @@ db.posts.insertMany([
 ])
 ```
 ### Get All Rows
+```js
 db.posts.find()
+```
 ### Get All Rows Formatted
+```js
 db.posts.find().pretty()
+```
 ### Find Rows
+```js
 db.posts.find({ category: 'News' })
+```
 ### Sort Rows
 # asc
+```js
 db.posts.find().sort({ title: 1 }).pretty()
+```
 # desc
+```js
 db.posts.find().sort({ title: -1 }).pretty()
+```
 ### Count Rows
+```js
 db.posts.find().count()
 db.posts.find({ category: 'news' }).count()
+```
 ### Limit Rows
+```js
 db.posts.find().limit(2).pretty()
+```
 ### Chaining
+```js
 db.posts.find().limit(2).sort({ title: 1 }).pretty()
+```
 ### Foreach
 ```js
 db.posts.find().forEach(function(doc) {
@@ -128,7 +154,9 @@ db.posts.update({ title: 'Post Two' },
 })
 ```
 ### Delete Row
+```js
 db.posts.remove({ title: 'Post Four' })
+```
 ### Sub-Documents
 ```js
 db.posts.update({ title: 'Post One' },
@@ -161,7 +189,9 @@ db.posts.find({
 )
 ```
 ## Add Index
+```js
 db.posts.createIndex({ title: 'text' })
+```
 ### Text Search
 ```js
 db.posts.find({
