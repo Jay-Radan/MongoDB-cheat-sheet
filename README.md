@@ -157,7 +157,9 @@ db.posts.update({ title: 'Post Two' },
 ```
 ### Delete Row
 ```js
-db.posts.remove({ title: 'Post Four' })
+db.posts.remove({ title: 'Post Four' })    ////DEPRICATED
+db.posts.deleteOne({ title: 'Post Four' }) 
+db.posts.deleteMany() ///Delete more than one or all if no filter provided
 ```
 ### Sub-Documents
 ```js
